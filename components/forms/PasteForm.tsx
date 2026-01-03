@@ -26,6 +26,7 @@ const PasteForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successUrl, setSuccessUrl] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
 
   const form = useForm<z.infer<typeof PasteSchema>>({
     resolver: zodResolver(PasteSchema),
@@ -89,9 +90,11 @@ const PasteForm = () => {
           <Button
             onClick={() => {
               navigator.clipboard.writeText(successUrl);
+              setCopied(true);
+              setTimeout(() => setCopied(false), 5000);
             }}
           >
-            Copy Link
+            {copied ? 'Copied!' : 'Copy Link'}
           </Button>
           <Link href={successUrl}>
             <Button variant='outline'>View Paste</Button>
