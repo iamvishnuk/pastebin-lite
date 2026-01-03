@@ -17,7 +17,8 @@ interface PasteResponse {
 }
 
 async function getPaste(id: string): Promise<PasteResponse> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  console.log('Base URL:', baseUrl);
   const response = await fetch(`${baseUrl}/api/pastes/${id}`, {
     cache: 'no-store'
   });
