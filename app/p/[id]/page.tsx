@@ -113,6 +113,11 @@ export default async function PastePage({ params }: PastePageProps) {
                   {expiresAt.toLocaleString()}
                 </div>
               )}
+              {paste.view_count && (
+                <div>
+                  <span className=''>View Count:</span> {paste.view_count}
+                </div>
+              )}
             </CardDescription>
           </CardHeader>
 
