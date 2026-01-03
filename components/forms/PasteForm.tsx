@@ -96,7 +96,10 @@ const PasteForm = () => {
           >
             {copied ? 'Copied!' : 'Copy Link'}
           </Button>
-          <Link href={successUrl}>
+          <Link
+            href={successUrl}
+            target='_blank'
+          >
             <Button variant='outline'>View Paste</Button>
           </Link>
           <Button

@@ -74,7 +74,8 @@ export async function GET(
     return NextResponse.json({
       content: paste.content,
       remaining_views: remainingViews,
-      expires_at: expiresAt
+      expires_at: expiresAt,
+      view_count: paste.view_count
     });
   } catch (error) {
     console.error('Error fetching paste:', error);
